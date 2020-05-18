@@ -1,0 +1,55 @@
+
+<% if (view=='drive') { %>
+  <div id="viewDrive" class="row col-md-6 offset-md-3">
+    <label>File Server Absolute Path</label>
+    <input class="col-md-12" id="drivePath" type="text" class="form-control-sm"  value="<%= JSON.parse(setting).maindrive %>">
+    <div class="col-md-12">&nbsp;&nbsp;</div>
+    <label>Web Server Static Relative Path</label>
+    <input class="col-md-12" id="publicPath" type="text" class="form-control-sm"  value="<%= JSON.parse(setting).publicdrive %>">
+    <div class="col-md-12">&nbsp;&nbsp;</div>
+    <label>Web Server Static Path String (prefix)</label>
+    <input class="col-md-12" id="publicStr" type="text" class="form-control-sm"  value="<%= JSON.parse(setting).publicstr %>">
+    <div class="col-md-12">&nbsp;&nbsp;</div>
+    <button id="butSaveDrive" type="button" class="offset-md-9 btn btn-primary btn-flat float-right"> &nbsp;&nbsp; Save&nbsp;&nbsp;</button>
+  </div>
+<% } else if (view=='branch') {  %>
+    <div id="viewBranch" class="row offset-md-1">
+      <div class="col-md-4 "><div class="col-md-12">&nbsp;&nbsp;</div>
+      <label class="col col-md-12 ">Group/Branch</label>
+      <select id="selectBranch" style="width:300px; height:300px;" autocomplete="off" multiple >
+        <% docBr.forEach(function(branch){ %>
+          <% if (branch.toUpperCase()!='ALL BRANCHES') {%>
+            <option value= "<%= branch.toUpperCase() %>" id= "<%= branch %>" ><%= branch.toUpperCase() %></option>
+            <% } }) %>
+      </select>
+      <div class="col-md-12">&nbsp;&nbsp;</div>
+      <button id="butDelGroup" type="button" class="offset-md-7 btn btn-primary btn-flat "> &nbsp;&nbsp; Delete&nbsp;&nbsp;</button>
+      </div>
+      <div class="col-md-4"><div class="col-md-12">&nbsp;&nbsp;</div>
+      <label>Add this Group/ Branch</label>
+      <input class="col-md-12" id="newBranch" type="text" class="form-control-sm" >
+      <div class="col-md-12">&nbsp;&nbsp;</div>
+      <button id="butSaveGroup" type="button" class="offset-md-8 btn btn-primary btn-flat "> &nbsp;&nbsp; Add&nbsp;&nbsp;</button>
+      </div>
+   </div>
+   <% } else if (view=='class') {  %>
+       <div id="viewClass" class="row offset-md-1">
+         <div class="col-md-4 "><div class="col-md-12">&nbsp;&nbsp;</div>
+         <label class='col col-md-12' >Classification</label>
+         <select id="selectClass"  style="width:300px; height:400px;" autocomplete="off" multiple   >
+           <% docClass.forEach(function(classi){ %>
+                <option value= "<%= classi %>" id= "<%= classi %>" ><%= classi %></option>
+            <% }) %>
+         </select>
+         <div class="col-md-12">&nbsp;&nbsp;</div>
+         <button id="butDelClass" type="button" class="offset-md-7 btn btn-primary btn-flat "> &nbsp;&nbsp; Delete&nbsp;&nbsp;</button>
+
+       </div>
+       <div class="col-md-4"><div class="col-md-12">&nbsp;&nbsp;</div>
+         <label>Add this Classification</label>
+         <input class="col-md-12" id="newClass" type="text" class="form-control-sm" >
+         <div class="col-md-12">&nbsp;&nbsp;</div>
+         <button id="butSaveClass" type="button" class="offset-md-9 btn btn-primary btn-flat float-right"> &nbsp;&nbsp; Save&nbsp;&nbsp;</button>
+      </div>
+  </div>
+  <% } %>

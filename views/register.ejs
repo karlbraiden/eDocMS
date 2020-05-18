@@ -1,0 +1,32 @@
+
+
+    <div id="registerUser" class="row col-md-6 offset-md-3">
+            <label>User Name</label>
+            <input class="col-md-12" id="userN" type="text" class="form-control-sm" placeholder="User Name">
+            <label>Password</label>
+            <input class="col-md-12" id="passW" type="password" class="form-control-sm" placeholder="Password">
+            <label>Confirm Password</label>
+            <input class="col-md-12" id="passW2" type="password" class="form-control-sm" placeholder="Verify Password">
+            <label>Email Address</label>
+            <input class="col-md-12" id="email" type="text" class="form-control-sm" placeholder="Email Address">
+            <label>Group/Branch</label>
+            <select id="selBranch" data-placeholder="Select Branch" multiple class="standardSelect" tabindex="5" >
+              <% docBr.forEach(function(branch){ %>
+                <% if (branch.toUpperCase()!='ALL BRANCHES') {%>
+                <option value= "<%= branch.toUpperCase() %>" id= "<%= branch %>" ><%= branch.toUpperCase() %></option>
+                <% } }) %>
+            </select>
+            <label>Access Level/Privilege</label>
+            <select id="selAccess" data-placeholder="Select Access Privilege" multiple class="standardSelect" tabindex="5" >
+                <option value="DutyAdmin" >DutyAdmin</option>
+                <option value="DutyBranch" >DutyBranch</option>
+                <option value="OICBranch" >OICBranch</option>
+                <option value="DEP" >DEP</option>
+                <option value="CO" >CO</option>
+                <option value="SysAdmin" >SysAdmin</option>
+            </select>
+            <label>Mapped Drive Path (For Editing Document)</label>
+            <input class="col-md-12" id="drivePath" type="text" class="form-control-sm" placeholder="Z:/">
+            <div class="col-md-12">&nbsp;&nbsp;</div>
+            <button id="butRegister" type="button" class="offset-md-9 btn btn-primary btn-flat float-right"> &nbsp;&nbsp; Register&nbsp;&nbsp;</button>
+    </div>

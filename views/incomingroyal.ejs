@@ -1,0 +1,42 @@
+<script src="/assets/js/jquery.213.min.js"></script>
+<script src="/assets/js/pdfobject.min.js"></script>
+
+<div class="wrapper">
+  <div class=" float-left"><input value= "<%= path %>" type="hidden" id="disPath"  name="disPath"></div>
+  <div class=" float-left"><input value= "<%= category %>" type="hidden" id="disCateg" ></div>
+  <div class=" float-left"><input value= "<%= level %>" type="hidden" id="disLevel" ></div>
+
+  <div id="disFrame" style="display:none;">
+    <iframe id="canvasPDF"
+    name="canvasPDF"
+    style="margin-left:20px;height:560px;width:950px;"
+    src="/assets/signcanvas.html">
+  </iframe>
+ </div>
+<!-- content -->
+
+
+<div id="disContent">
+  <style>
+    .pdfobject-container { height: 600px;}
+    .pdfobject { border: 1px solid #666; }
+  </style>
+  <div class="content mt-3">
+    <div class="col-sm-12">
+      <div id="pdf_view"></div>
+    </div>
+  </div>
+</div>
+<!-- /content -->
+</div><!-- ./wrapper -->
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    <% if (disp!= 'empty'){%>
+      PDFObject.embed("<%= path %>", "#pdf_view");
+      <% }else { %>
+        PDFObject.embed("/drive/No Pending Files.pdf", "#pdf_view");
+        <% } %>
+      });
+    </script>
